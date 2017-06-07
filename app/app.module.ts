@@ -2,6 +2,7 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent }   from './app.component';
 import { FormsModule }  from '@angular/forms';
+import { EditKegComponent }  from './edit-keg.component';
 import { KegListComponent }  from './keg-list.component';
 
 
@@ -9,8 +10,9 @@ import { KegListComponent }  from './keg-list.component';
   imports: [ BrowserModule,
                   FormsModule],
   declarations: [ AppComponent,
-                  KegListComponent],
+                  KegListComponent,
+                  EditKegComponent],
   bootstrap:    [ AppComponent ]
 })
 
-export class AppModule {}
+export class AppModule { }
