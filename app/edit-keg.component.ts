@@ -17,7 +17,7 @@ import { Keg } from './keg.model';
         <input [(ngModel)]="selectedKeg.price">
         <label>Enter Keg Alcohol Content:</label>
         <input [(ngModel)]="selectedKeg.alcoholContent">
-        <button (click)="finishedEditing()">Done</button>
+        <button (click)="doneButtonClicked()">Done</button>
       </div>
     </div>
   `
@@ -26,4 +26,9 @@ import { Keg } from './keg.model';
 
 export class EditKegComponent {
   @Input() selectedKeg: Keg;
+  @Output() doneButtonClickedSender = new EventEmitter();
+  
+  doneButtonClicked(){
+    this.doneButtonClickedSender.emit();
+  }
 }
