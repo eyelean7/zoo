@@ -13,7 +13,7 @@ import { NewKegComponent }  from './new-keg.component';
                   FormsModule],
   declarations: [ AppComponent,
                   KegListComponent,
-                  EditKegComponent
+                  EditKegComponent,
                   NewKegComponent],
   bootstrap:    [ AppComponent ]
 })
