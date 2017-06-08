@@ -4,7 +4,7 @@ import { Keg } from './keg.model';
 @Component ({
   selector: 'keg-list',
   template: `
-    <div *ngFor="let currentKeg of childKegList">
+    <div *ngFor="let currentKeg of childKegList | emptiness">
       <h3 (click)="showInfo">{{currentKeg.name}} <button (click)="editButtonHasBeenClicked(currentKeg)">Edit!</button></h3>
       <ul>
         <li>{{currentKeg.brand}}</li>
@@ -22,7 +22,7 @@ import { Keg } from './keg.model';
    editButtonHasBeenClicked(kegToEdit: Keg) {
      this.clickSender.emit(kegToEdit)
    }
-   
+
    isEmpty(clickedKeg: Keg) {
      if(clickedKeg.empty === true) {
        alert("This keg is empty!");
