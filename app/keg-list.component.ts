@@ -32,7 +32,12 @@ import { Keg } from './keg.model';
    filterbyEmptiness: string = "allKegs"
 
    sellPint(currentKeg: Keg) {
-     currentKeg.pints -=1;
+     if currentKeg.pints > 0 {
+        currentKeg.pints -=1;
+     } else {
+       currentKeg.empty = true;
+       alert('No more')
+     }
    }
 
    editButtonHasBeenClicked(kegToEdit: Keg) {
