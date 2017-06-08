@@ -4,7 +4,7 @@ import { Keg } from './keg.model';
 @Component ({
   selector: 'keg-list',
   template: `
-  <h3>Show me:</h3>
+  <h3 id="select">Show me:</h3>
   <select (change)="onChange($event.target.value)">
     <option value="allKegs" selected="selected">All Kegs</option>
     <option value="emptyKegs">Empty Kegs</option>

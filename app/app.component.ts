@@ -6,7 +6,7 @@ import { Keg } from './keg.model';
   selector: 'app-root',
   template: `
     <div class="container">
-      <h1>{{barName}}</h1>
+      <h1 class="banner">{{barName}}</h1>
       <hr>
       <keg-list [childKegList]="masterKegList" (clickSender)="editKeg($event)"></keg-list>
       <edit-keg [selectedKeg]="selectedKeg" (doneButtonClickedSender)="finishedEditing()"></edit-keg>
