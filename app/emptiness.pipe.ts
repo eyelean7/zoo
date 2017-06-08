@@ -23,6 +23,13 @@ export class EmptinessPipe implements PipeTransform {
       }
     }
   return output;
+} else if (desiredEmptiness === "almostEmptyKegs") {
+  for (var i = 0; i < input.length; i++) {
+    if (input[i].pints <= 10 && input[i].pints > 0) {
+      output.push(input[i]);
+    }
+  }
+  return output;
 } else {
   return input
     }

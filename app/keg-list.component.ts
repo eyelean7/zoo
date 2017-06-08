@@ -8,18 +8,19 @@ import { Keg } from './keg.model';
     <option value="allKegs" selected="selected">All Kegs</option>
     <option value="emptyKegs">Empty Kegs</option>
     <option value="nonEmptyKegs"> Not Empty Kegs</option>
+    <option value="almostEmptyKegs">Almost Empty Kegs</option>
   </select>
 
   <ul>
-    <li [class]="priceColor(currentKeg)" (click)="isEmpty(currentKeg)" *ngFor="let currentKeg of childKegList | emptiness:filterbyEmptiness"><h3>{{currentKeg.name}}: {{currentKeg.pints}}</h3><button class="btn blue" (click)="sellPint(currentKeg)">Sell Pint</button>
+    <li [class]="priceColor(currentKeg)" (click)="isEmpty(currentKeg)" *ngFor="let currentKeg of childKegList | emptiness:filterbyEmptiness"><h3>{{currentKeg.name}}: {{currentKeg.pints}}</h3><button class="btn btn-info" (click)="sellPint(currentKeg)">Sell Pint</button>
       <ul>
         <li>{{currentKeg.brand}}</li>
         <li>{{currentKeg.price}}</li>
         <li>{{currentKeg.alcoholContent}}</li>
         <input *ngIf="currentKeg.empty === true" type="checkbox" checked (click)="toggleDone(currentKeg, false)"/>
         <input *ngIf="currentKeg.empty === false" type="checkbox" (click)="toggleDone(currentKeg, true)"/>
-        <button class="btn orange" (click)="editButtonHasBeenClicked(currentKeg)">Edit!</button>
       </ul>
+      <button class="btn btn-warning" (click)="editButtonHasBeenClicked(currentKeg)">Edit!</button>
     </li>
   </ul>
 
