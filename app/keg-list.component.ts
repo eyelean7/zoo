@@ -12,11 +12,11 @@ import { Keg } from './keg.model';
   </select>
 
   <ul>
-    <li [class]="priceColor(currentKeg)" (click)="isEmpty(currentKeg)" *ngFor="let currentKeg of childKegList | emptiness:filterbyEmptiness"><h3>{{currentKeg.name}}: {{currentKeg.pints}}</h3><button class="btn btn-info" (click)="sellPint(currentKeg)">Sell Pint</button>
+    <li [class]="priceColor(currentKeg)" (click)="isEmpty(currentKeg)" *ngFor="let currentKeg of childKegList | emptiness:filterbyEmptiness"><h3 [class]= "colorbyABV(currentKeg)">{{currentKeg.name}}: {{currentKeg.pints}}</h3><button class="btn btn-info" (click)="sellPint(currentKeg)">Sell Pint</button>
       <ul>
-        <li>{{currentKeg.brand}}</li>
-        <li>{{currentKeg.price}}</li>
-        <li>{{currentKeg.alcoholContent}}</li>
+        <li>Brand: {{currentKeg.brand}}</li>
+        <li>Price: \${{currentKeg.price}}</li>
+        <li>ABV: {{currentKeg.alcoholContent}} %</li>
         <input *ngIf="currentKeg.empty === true" type="checkbox" checked (click)="toggleDone(currentKeg, false)"/>
         <input *ngIf="currentKeg.empty === false" type="checkbox" (click)="toggleDone(currentKeg, true)"/>
       </ul>
@@ -69,5 +69,13 @@ import { Keg } from './keg.model';
      } else {
      return "bg-info";
    }
+  }
+
+  colorbyABV(currentKeg) {
+    if(currentKeg.alcoholContent >= 10){
+      return "heavy";
+    } else {
+      return "light";
+    }
   }
  }
