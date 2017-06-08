@@ -8,21 +8,21 @@ import { Keg } from './keg.model';
   <form>
     <div>
       <label>Enter Keg Name:</label>
-      <input #newName style="font-size:25px" type="text"/>
+      <input #newName style="font-size:25px" type="text" class="form-control"/>
     </div>
     <div>
       <label>Enter Keg Brand:</label>
-      <input #newBrand style="font-size:25px" type="text"/>
+      <input #newBrand style="font-size:25px" type="text" class="form-control"/>
     </div>
     <div>
       <label>Enter Keg Price:</label>
-      <input #newPrice style="font-size:25px" type="text"/>
+      <input #newPrice style="font-size:25px" type="text" class="form-control"/>
     </div>
     <div>
       <label>Enter Keg Alcohol Content:</label>
-      <input #newAlcoholContent style="font-size:25px" type="text"/>
+      <input #newAlcoholContent style="font-size:25px" type="number" class="form-control"/>
     </div>
-    <button class="btn green" (click)="submitForm(newName.value, newBrand.value, newPrice.value, newAlcoholContent.value);newName.value='';newBrand.value='';newPrice.value='';newAlcoholContent.value='';">Add</button>
+    <button class="btn btn-success" (click)="submitForm(newName.value, newBrand.value, newPrice.value, newAlcoholContent.value);newName.value='';newBrand.value='';newPrice.value='';newAlcoholContent.value='';">Add</button>
   </form>
   `
 })

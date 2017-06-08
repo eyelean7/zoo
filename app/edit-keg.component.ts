@@ -10,13 +10,13 @@ import { Keg } from './keg.model';
         <hr>
         <h3>Edit Keg</h3>
         <label>Enter Keg Name:</label>
-        <input [(ngModel)]="selectedKeg.name">
+        <input [(ngModel)]="selectedKeg.name" class="form-control">
         <label>Enter Keg Brand:</label>
-        <input [(ngModel)]="selectedKeg.brand">
+        <input [(ngModel)]="selectedKeg.brand" class="form-control">
         <label>Enter Keg Price:</label>
-        <input [(ngModel)]="selectedKeg.price">
+        <input [(ngModel)]="selectedKeg.price" class="form-control">
         <label>Enter Keg Alcohol Content:</label>
-        <input [(ngModel)]="selectedKeg.alcoholContent">
+        <input [(ngModel)]="selectedKeg.alcoholContent" class="form-control">
         <button (click)="doneButtonClicked()" class="btn btn-success">Done</button>
       </div>
     </div>
