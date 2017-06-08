@@ -12,7 +12,7 @@ import { Keg } from './keg.model';
 
 
   <ul>
-    <li (click)="isDone(currentKeg)" *ngFor="let currentKeg of childKegList | emptiness:filterbyEmptiness"><h3>{{currentKeg.name}}</h3>
+    <li [class]="priceColor(currentKeg)" (click)="isEmpty(currentKeg)" *ngFor="let currentKeg of childKegList | emptiness:filterbyEmptiness"><h3>{{currentKeg.name}}: {{currentKeg.pints}}</h3><button (click)="sellPint(currentKeg)">Sell Pint</button>
       <ul>
         <li>{{currentKeg.brand}}</li>
         <li>{{currentKeg.price}}</li>
@@ -30,15 +30,20 @@ import { Keg } from './keg.model';
    @Input() childKegList: Keg[];
    @Output() clickSender = new EventEmitter();
    filterbyEmptiness: string = "allKegs"
+
+   sellPint(currentKeg: Keg) {
+     currentKeg.pints -=1;
+   }
+
    editButtonHasBeenClicked(kegToEdit: Keg) {
      this.clickSender.emit(kegToEdit)
    }
 
    isEmpty(clickedKeg: Keg) {
      if(clickedKeg.empty === true) {
-       alert("This keg is empty!");
+       console.log("This keg is empty!");
      } else {
-       alert("Not empty!");
+       console.log("Not empty!");
      }
    }
 
@@ -50,4 +55,13 @@ import { Keg } from './keg.model';
      clickedKeg.empty = setEmptiness;
    }
 
+   priceColor(currentKeg) {
+     if(currentKeg.price >= 100) {
+       return "bg-success";
+     } else if (currentKeg.price < 100 )
+      return "bg-warning";
+   }  else {
+     return "bg-info";
+   }
+  }
  }
