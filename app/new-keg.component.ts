@@ -5,23 +5,25 @@ import { Keg } from './keg.model';
   selector: 'new-keg',
   template: `
   <h1>New Keg</h1>
-  <div>
-    <label>Enter Keg Name:</label>
-    <input #newName>
-  </div>
-  <div>
-    <label>Enter Keg Brand:</label>
-    <input #newBrand>
-  </div>
-  <div>
-    <label>Enter Keg Price:</label>
-    <input #newPrice>
-  </div>
-  <div>
-    <label>Enter Keg Alcohol Content:</label>
-    <input #newAlcoholContent>
-  </div>
-  <button (click)="submitForm(newName.value, newBrand.value, newPrice.value, newAlcoholContent.value);newName.value='';newBrand.value='';newPrice.value='';newAlcoholContent.value='';">Add</button>
+  <form>
+    <div>
+      <label>Enter Keg Name:</label>
+      <input #newName style="font-size:25px" type="text"/>
+    </div>
+    <div>
+      <label>Enter Keg Brand:</label>
+      <input #newBrand style="font-size:25px" type="text"/>
+    </div>
+    <div>
+      <label>Enter Keg Price:</label>
+      <input #newPrice style="font-size:25px" type="text"/>
+    </div>
+    <div>
+      <label>Enter Keg Alcohol Content:</label>
+      <input #newAlcoholContent style="font-size:25px" type="text"/>
+    </div>
+    <button class="btn green" (click)="submitForm(newName.value, newBrand.value, newPrice.value, newAlcoholContent.value);newName.value='';newBrand.value='';newPrice.value='';newAlcoholContent.value='';">Add</button>
+  </form>
   `
 })
 

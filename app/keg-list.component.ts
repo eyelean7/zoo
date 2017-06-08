@@ -12,14 +12,14 @@ import { Keg } from './keg.model';
 
 
   <ul>
-    <li [class]="priceColor(currentKeg)" (click)="isEmpty(currentKeg)" *ngFor="let currentKeg of childKegList | emptiness:filterbyEmptiness"><h3>{{currentKeg.name}}: {{currentKeg.pints}}</h3><button (click)="sellPint(currentKeg)">Sell Pint</button>
+    <li [class]="priceColor(currentKeg)" (click)="isEmpty(currentKeg)" *ngFor="let currentKeg of childKegList | emptiness:filterbyEmptiness"><h3>{{currentKeg.name}}: {{currentKeg.pints}}</h3><button class="btn blue" (click)="sellPint(currentKeg)">Sell Pint</button>
       <ul>
         <li>{{currentKeg.brand}}</li>
         <li>{{currentKeg.price}}</li>
         <li>{{currentKeg.alcoholContent}}</li>
         <input *ngIf="currentKeg.empty === true" type="checkbox" checked (click)="toggleDone(currentKeg, false)"/>
         <input *ngIf="currentKeg.empty === false" type="checkbox" (click)="toggleDone(currentKeg, true)"/>
-        <button (click)="editButtonHasBeenClicked(currentKeg)">Edit!</button>
+        <button class="btn orange" (click)="editButtonHasBeenClicked(currentKeg)">Edit!</button>
       </ul>
     </li>
   </ul>
@@ -58,9 +58,9 @@ import { Keg } from './keg.model';
    priceColor(currentKeg) {
      if(currentKeg.price >= 100) {
        return "bg-success";
-     } else if (currentKeg.price < 100 )
-      return "bg-warning";
-   }  else {
+     } else if (currentKeg.price < 100 ) {
+       return "bg-warning";
+     } else {
      return "bg-info";
    }
   }
