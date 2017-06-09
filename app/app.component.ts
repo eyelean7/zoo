@@ -11,8 +11,10 @@ import { Animal } from './animal.model';
       <div class="row">
         <animal-list [animalList]="animalList" (clickSender)="editAnimal($event)" ></animal-list>
         <edit-animal [selectedAnimal]="selectedAnimal"  (doneButtonClickedSender)="finishedEditing()"></edit-animal>
+        <br>
         <hr>
       </div>
+      <br>
       <new-animal (newAnimalSender)="addAnimal($event)"></new-animal>
     </div>
   `

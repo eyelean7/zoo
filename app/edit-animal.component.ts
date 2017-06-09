@@ -13,6 +13,7 @@ import { Animal } from './animal.model';
         <input [(ngModel)]="selectedAnimal.age" class="form-control">
         <label>Enter Number of Caretakers:</label>
         <input [(ngModel)]="selectedAnimal.caretakers" class="form-control">
+        <br>
         <button (click)="doneButtonClicked()" class="btn btn-success">Done</button>
       </div>
     </div>
