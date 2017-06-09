@@ -6,9 +6,7 @@ import { Animal } from './animal.model';
   template: `
     <div>
       <div *ngIf="selectedAnimal">
-        <h3>{{selectedAnimal.name}}</h3>
-        <hr>
-        <h3>Edit Animal</h3>
+        <h3>Edit {{selectedAnimal.name}}</h3>
         <label>Enter Animal Name:</label>
         <input [(ngModel)]="selectedAnimal.name" class="form-control">
         <label>Enter Animal Age:</label>

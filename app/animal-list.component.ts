@@ -5,12 +5,11 @@ import { Animal } from './animal.model';
   selector: 'animal-list',
   template: `
   <h3 id="select">Show me:</h3>
-  <select (change)="onChange($event.target.value)">
+  <select class="form-control" (change)="onChange($event.target.value)">
     <option value="all" selected="selected">All Animals</option>
     <option value="young">Young Animals</option>
     <option value="mature">Mature Animals</option>
   </select>
-  <hr>
   <ul>
     <li id="animal" *ngFor="let currentAnimal of animalList | age:filterByAge"><h3>{{currentAnimal.name}}</h3><button class="btn btn-info" (click)="showInfo(currentAnimal)">View Info</button>
       <ul *ngIf="showInfo">
@@ -26,7 +25,6 @@ import { Animal } from './animal.model';
       <button class="btn btn-warning" (click)="editButtonHasBeenClicked(currentAnimal)">Edit!</button>
     </li>
   </ul>
-
   `
 })
 
