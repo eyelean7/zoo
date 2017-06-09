@@ -6,14 +6,14 @@ import { Animal } from './animal.model';
   template: `
   <h3 id="select">Show me:</h3>
   <select (change)="onChange($event.target.value)">
-    <option value="allAnimals" selected="selected">All Animals</option>
-    <option value="youngAnimals">Young Animals</option>
-    <option value="matureAnimals">Mature Animals</option>
+    <option value="all" selected="selected">All Animals</option>
+    <option value="young">Young Animals</option>
+    <option value="mature">Mature Animals</option>
   </select>
   <hr>
   <ul>
     <li id="animal" *ngFor="let currentAnimal of animalList | age:filterByAge"><h3>{{currentAnimal.name}}</h3><button class="btn btn-info" (click)="showInfo(currentAnimal)">View Info</button>
-      <ul class="information">
+      <ul *ngIf="showInfo">
         <li>Species: {{currentAnimal.species}}</li>
         <li>Age:{{currentAnimal.age}}</li>
         <li>Diet: {{currentAnimal.diet}}</li>
@@ -42,5 +42,7 @@ import { Animal } from './animal.model';
    onChange(optionFromMenu){
      this.filterByAge = optionFromMenu;
    }
+   showInfo(currentAnimal) {
 
+   }
  }

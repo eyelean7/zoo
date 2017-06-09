@@ -6,7 +6,7 @@ import { Animal } from './animal.model';
   template: `
   <h1 class="banner">New Animal</h1>
   <form class="row">
-    <div class="col-md-6">
+    <div class="col-SM-6">
       <div>
         <label>Enter Animal Species:</label>
         <input #newSpecies style="font-size:25px" type="text" class="form-control"/>
@@ -28,7 +28,7 @@ import { Animal } from './animal.model';
         <input #newLocation style="font-size:25px" type="text" class="form-control"/>
       </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-SM-6">
       <div>
         <label>Enter Number of Caretakers:</label>
         <input #newCaretakers style="font-size:25px" type="number" class="form-control"/>
