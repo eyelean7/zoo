@@ -9,12 +9,8 @@ import { Animal } from './animal.model';
       <h1 class="banner">{{zooName}}</h1>
       <hr>
       <div class="row">
-        <div class="col-sm-6">
-          <animal-list [animalList]="animalList" (clickSender)="editAnimal($event)" ></animal-list>
-        </div>
-        <div class="col-sm-6">
-          <edit-animal [selectedAnimal]="selectedAnimal"  (doneButtonClickedSender)="finishedEditing()"></edit-animal>
-        </div>
+        <animal-list [animalList]="animalList" (clickSender)="editAnimal($event)" ></animal-list>
+        <edit-animal [selectedAnimal]="selectedAnimal"  (doneButtonClickedSender)="finishedEditing()"></edit-animal>
         <hr>
       </div>
       <new-animal (newAnimalSender)="addAnimal($event)"></new-animal>
