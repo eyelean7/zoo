@@ -10,10 +10,10 @@ import { Animal } from './animal.model';
       <hr>
       <div class="row">
         <div class="col-sm-6">
-          <animal-list [animalList]="animalList" (clickSender)="editAnimal($event)"></animal-list>
+          <animal-list [animalList]="animalList" (clickSender)="editAnimal($event)" [animalDetails]="animalDetails" detailSender="showDetails($event)"></animal-list>
         </div>
         <div class="col-sm-6">
-          <edit-animal [selectedAnimal]="selectedAnimal" (doneButtonClickedSender)="finishedEditing()"></edit-animal>
+          <edit-animal [selectedAnimal]="selectedAnimal"  (doneButtonClickedSender)="finishedEditing()"></edit-animal>
         </div>
         <hr>
       </div>
@@ -25,6 +25,7 @@ import { Animal } from './animal.model';
 export class AppComponent {
   zooName: string = 'Wilderness Park Zoo';
   selectedAnimal = null;
+  animalDetails: Animal = null;
   animalList: Animal[] = [
     new Animal('lion', 'Leo', 4, 'carnivore', 'jungle', 4, 'male', 'sunny rocks', 'tapping on glass'),
     new Animal('giraffe', 'Geraldine', 1, 'herbivore', 'forest', 3, 'female', 'chasing', 'loud noises'),
@@ -34,6 +35,9 @@ export class AppComponent {
     this.selectedAnimal = clickedAnimal;
   }
 
+  showDetails(clickedAnimal) {
+    this.animalDetails = clickedAnimal;
+  }
   finishedEditing(){
     this.selectedAnimal = null;
   }

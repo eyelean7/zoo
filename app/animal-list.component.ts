@@ -11,8 +11,8 @@ import { Animal } from './animal.model';
     <option value="mature">Mature Animals</option>
   </select>
   <ul>
-    <li id="animal" *ngFor="let currentAnimal of animalList | age:filterByAge"><h3>{{currentAnimal.name}}</h3><button class="btn btn-info" (click)="showInfo(currentAnimal)">View Info</button>
-      <ul *ngIf="showInfo">
+    <li id="animal" *ngFor="let currentAnimal of animalList | age:filterByAge"><h3>{{currentAnimal.name}}</h3><button class="btn btn-info" (click)="showDetails(currentAnimal)">View Info</button>
+      <ul *ngIf="animalDetails">
         <li>Species: {{currentAnimal.species}}</li>
         <li>Age:{{currentAnimal.age}}</li>
         <li>Diet: {{currentAnimal.diet}}</li>
@@ -22,7 +22,7 @@ import { Animal } from './animal.model';
         <li>Likes: {{currentAnimal.likes}}</li>
         <li>Dislikes: {{currentAnimal.dislikes}}</li>
       </ul>
-      <button class="btn btn-warning" (click)="editButtonHasBeenClicked(currentAnimal)">Edit!</button>
+      <button class="btn btn-warning" (click)="editAnimal(currentAnimal)">Edit!</button>
     </li>
   </ul>
   `
@@ -30,17 +30,22 @@ import { Animal } from './animal.model';
 
  export class AnimalListComponent {
    @Input() animalList: Animal[];
+   @Input() animalDetails: Animal = null;
    @Output() clickSender = new EventEmitter();
+  //  @Output() detailSender = new EventEmitter();
    filterByAge: string = "allAnimals"
 
-   editButtonHasBeenClicked(animal: Animal) {
+   editAnimal(animal: Animal) {
      this.clickSender.emit(animal)
+   }
+
+   showDetails(animal: Animal) {
+     this.animalDetails = animal;
+    //  this.detailSender.emit(animal)
    }
 
    onChange(optionFromMenu){
      this.filterByAge = optionFromMenu;
    }
-   showInfo(currentAnimal) {
 
-   }
  }
