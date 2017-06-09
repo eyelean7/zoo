@@ -48,7 +48,7 @@ import { Animal } from './animal.model';
           <input #newDislikes style="font-size:25px" type="text" class="form-control"/>
         </div>
         <br/>
-        <button class="btn btn-success" (click)="submitForm(newSpecies.value, newName.value, newAge.value, newDiet.value, newLocation.value, newCaretakers.value, newSex.value, newLikes.value, newDislikes.value); newSpecies.value=''; newName.value=''; newAge.value=''; newDiet.value=''; newLocation.value=''; newCaretakers.value=''; newSex.value=''; newLikes.value=''; newDislikes.value='';">Add</button>
+        <button class="btn btn-success" (click)="submitForm(newSpecies.value, newName.value, newAge.value, newDiet.value, newLocation.value, newCaretakers.value, newSex.value, newLikes.value, newDislikes.value); newSpecies.value=''; newName.value=''; newAge.value=''; newDiet.value=''; newLocation.value=''; newCaretakers.value=''; newSex.value=''; newLikes.value=''; newDislikes.value=''; hideForm(); ">Add</button>
       </div>
     </form>
   </div>
@@ -61,6 +61,9 @@ export class NewAnimalComponent {
 
   showForm() {
     this.newAnimal = true;
+  }
+  hideForm() {
+    this.newAnimal = false;
   }
 
   submitForm(species: string, name: string, age: number, diet: string, location: string, caretakers: number, sex: string, likes: string, dislikes: string){

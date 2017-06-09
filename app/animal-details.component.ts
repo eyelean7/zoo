@@ -6,7 +6,6 @@ import { Animal } from './animal.model';
   template:`
     <button *ngIf="animalDetails===null" class="btn btn-info" (click)="showDetails(currentAnimal)">View Info</button>
     <ul *ngIf="animalDetails">
-    <h1>YOU DID IT</h1>
       <li>Species: {{currentAnimal.species}}</li>
       <li>Age:{{currentAnimal.age}}</li>
       <li>Diet: {{currentAnimal.diet}}</li>
@@ -23,6 +22,7 @@ import { Animal } from './animal.model';
 
 export class AnimalDetailsComponent {
   @Input() animalDetails: Animal = null;
+  @Input() currentAnimal: Animal = null;
 
   showDetails(animal: Animal) {
     if (this.animalDetails) {

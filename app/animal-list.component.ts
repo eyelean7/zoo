@@ -12,7 +12,7 @@ import { Animal } from './animal.model';
   </select>
   <ul>
     <li id="animal" *ngFor="let currentAnimal of animalList | age:filterByAge"><h3>{{currentAnimal.name}}</h3>
-      <animal-details> </animal-details>
+      <animal-details [currentAnimal]="currentAnimal"> </animal-details>
       <button class="btn btn-warning" (click)="editAnimal(currentAnimal)">Edit!</button>
     </li>
   </ul>
