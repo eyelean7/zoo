@@ -1,37 +1,37 @@
 import { Component } from '@angular/core';
-import { Keg } from './keg.model';
+import { Animal } from './animal.model';
 
 
 @Component({
   selector: 'app-root',
   template: `
     <div class="container">
-      <h1 class="banner">{{barName}}</h1>
+      <h1 class="banner">{{zooName}}</h1>
       <hr>
-      <keg-list [childKegList]="masterKegList" (clickSender)="editKeg($event)"></keg-list>
-      <edit-keg [selectedKeg]="selectedKeg" (doneButtonClickedSender)="finishedEditing()"></edit-keg>
-      <new-keg (newKegSender)="addKeg($event)"></new-keg>
+      <animal-list [animalList]="animalList" (clickSender)="editAnimal($event)"></animal-list>
+      <edit-animal [selectedAnimal]="selectedAnimal" (doneButtonClickedSender)="finishedEditing()"></edit-animal>
+      <new-animal (newAnimalSender)="addAnimal($event)"></new-animal>
     </div>
   `
 })
 
 export class AppComponent {
-  barName: string = 'Epicodus Bar & Lounge';
-  selectedKeg = null;
-  masterKegList: Keg[] = [
-    new Keg('Eye Pee Ayyyyy', 'Katy\'s Keg', 100, 100),
-    new Keg('Beer','Dan\'s Dregs', 20, 100),
-    new Keg('Cider Only','Ilene\'s Imbibables', 20, 1)
+  zooName: string = 'Wilderness Park Zoo';
+  selectedAnimal = null;
+  animalList: Animal[] = [
+    new Animal('lion', 'Leo', 4, 'carnivore', 'jungle', 4, 'male', 'sunny rocks', 'tapping on glass'),
+    new Animal('giraffe', 'Geraldine', 1, 'herbivore', 'forest', 3, 'female', 'chasing', 'loud noises'),
+    new Animal('elephant', 'Elle', 6, 'herbivore', 'rain forest', 2, 'female', 'water', 'clutter')
   ];
-  editKeg(clickedKeg) {
-    this.selectedKeg = clickedKeg;
+  editAnimal(clickedAnimal) {
+    this.selectedAnimal = clickedAnimal;
   }
 
   finishedEditing(){
-    this.selectedKeg = null;
+    this.selectedAnimal = null;
   }
 
-  addKeg(newKegFromChild: Keg){
-    this.masterKegList.push(newKegFromChild);
+  addAnimal(newAnimal: Animal){
+    this.animalList.push(newAnimal);
   }
 }
