@@ -10,7 +10,7 @@ import { Animal } from './animal.model';
       <hr>
       <div class="row">
         <div class="col-sm-6">
-          <animal-list [animalList]="animalList" (clickSender)="editAnimal($event)" [animalDetails]="animalDetails" detailSender="showDetails($event)"></animal-list>
+          <animal-list [animalList]="animalList" (clickSender)="editAnimal($event)" ></animal-list>
         </div>
         <div class="col-sm-6">
           <edit-animal [selectedAnimal]="selectedAnimal"  (doneButtonClickedSender)="finishedEditing()"></edit-animal>
@@ -35,7 +35,7 @@ export class AppComponent {
     this.selectedAnimal = clickedAnimal;
   }
 
-  showDetails(clickedAnimal) {
+  toggleDetails(clickedAnimal) {
     this.animalDetails = clickedAnimal;
   }
   finishedEditing(){

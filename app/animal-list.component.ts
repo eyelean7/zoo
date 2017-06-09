@@ -11,7 +11,7 @@ import { Animal } from './animal.model';
     <option value="mature">Mature Animals</option>
   </select>
   <ul>
-    <li id="animal" *ngFor="let currentAnimal of animalList | age:filterByAge"><h3>{{currentAnimal.name}}</h3><button class="btn btn-info" (click)="showDetails(currentAnimal)">View Info</button>
+    <li id="animal" *ngFor="let currentAnimal of animalList | age:filterByAge"><h3>{{currentAnimal.name}}</h3><button class="btn btn-info" (click)="toggleDetails(currentAnimal)">View Info</button>
       <ul *ngIf="animalDetails">
         <li>Species: {{currentAnimal.species}}</li>
         <li>Age:{{currentAnimal.age}}</li>
@@ -32,16 +32,20 @@ import { Animal } from './animal.model';
    @Input() animalList: Animal[];
    @Input() animalDetails: Animal = null;
    @Output() clickSender = new EventEmitter();
-  //  @Output() detailSender = new EventEmitter();
    filterByAge: string = "allAnimals"
 
    editAnimal(animal: Animal) {
      this.clickSender.emit(animal)
    }
 
-   showDetails(animal: Animal) {
-     this.animalDetails = animal;
-    //  this.detailSender.emit(animal)
+   toggleDetails(animal: Animal) {
+     if (this.animalDetails) {
+       this.animalDetails = null;
+     }
+     else {
+       this.animalDetails = animal;
+     }
+
    }
 
    onChange(optionFromMenu){
