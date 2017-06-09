@@ -5,17 +5,18 @@ import { Animal } from './animal.model';
   selector: 'animal-details',
   template:`
     <button *ngIf="animalDetails===null" class="btn btn-info" (click)="showDetails(currentAnimal)">View Info</button>
-    <ul *ngIf="animalDetails"><button class="btn btn-info hiding" (click)="hideDetails(currentAnimal)">Hide Info</button>
-      <li>Species: {{currentAnimal.species}}</li>
-      <li>Age: {{currentAnimal.age}}</li>
-      <li>Diet: {{currentAnimal.diet}}</li>
-      <li>Location: {{currentAnimal.location}}</li>
-      <li>Caretakers: {{currentAnimal.caretakers}}</li>
-      <li>Sex: {{currentAnimal.sex}}</li>
-      <li>Likes: {{currentAnimal.likes}}</li>
-      <li>Dislikes: {{currentAnimal.dislikes}}</li>
-    </ul>
-
+    <button *ngIf="animalDetails" class="btn btn-info" (click)="hideDetails(currentAnimal)">Hide Info</button>
+      <ul *ngIf="animalDetails">
+      <br>
+        <li>Species: {{currentAnimal.species}}</li>
+        <li>Age: {{currentAnimal.age}}</li>
+        <li>Diet: {{currentAnimal.diet}}</li>
+        <li>Location: {{currentAnimal.location}}</li>
+        <li>Caretakers: {{currentAnimal.caretakers}}</li>
+        <li>Sex: {{currentAnimal.sex}}</li>
+        <li>Likes: {{currentAnimal.likes}}</li>
+        <li>Dislikes: {{currentAnimal.dislikes}}</li>
+      </ul>
   `
 
 })
