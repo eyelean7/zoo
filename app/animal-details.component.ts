@@ -7,7 +7,7 @@ import { Animal } from './animal.model';
     <button *ngIf="animalDetails===null" class="btn btn-info" (click)="showDetails(currentAnimal)">View Info</button>
     <ul *ngIf="animalDetails"><button class="btn btn-info hiding" (click)="hideDetails(currentAnimal)">Hide Info</button>
       <li>Species: {{currentAnimal.species}}</li>
-      <li>Age:{{currentAnimal.age}}</li>
+      <li>Age: {{currentAnimal.age}}</li>
       <li>Diet: {{currentAnimal.diet}}</li>
       <li>Location: {{currentAnimal.location}}</li>
       <li>Caretakers: {{currentAnimal.caretakers}}</li>
